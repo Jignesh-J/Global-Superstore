@@ -3,36 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: Arial, sans-serif;
-        }
-        iframe {
-            display: block;
-            width: 100%;
-            height: 100vh; /* Full height of the viewport */
-            border: none; /* No border */
-        }
-    </style>
-
-    <!-- Google tag (gtag.js) for tracking -->
+    <title>Global Superstore Dashboard</title>
+	
+	 <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-VN38C4QQMG"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
+
       gtag('config', 'G-VN38C4QQMG');
     </script>
+	
+	
 </head>
 <body>
-
-    <!-- Embed Power BI Dashboard -->
-    <iframe title="Global Superstore Dashboard" 
-        src="https://app.powerbi.com/view?r=eyJrIjoiM2FmOTY2Y2ItY2I3Ny00MWU3LTk4ZTctMjNjOWJjMzJlYjdiIiwidCI6IjIxNWUyNDZjLTliYjItNDQ0Zi04YzYxLWY5ZDMzM2E5YTNiYiJ9" 
-        allowfullscreen="true"></iframe>
-
+    <iframe width="100%" height="800px" src="https://app.powerbi.com/view?r=eyJrIjoiM2FmOTY2Y2ItY2I3Ny00MWU3LTk4ZTctMjNjOWJjMzJlYjdiIiwidCI6IjIxNWUyNDZjLTliYjItNDQ0Zi04YzYxLWY5ZDMzM2E5YTNiYiJ9" frameborder="0" allowFullScreen="true"></iframe>
 </body>
+
+<!-- Track interaction with Power BI iframe -->
+    <script>
+        // Wait for the page to load before adding event listener
+        document.addEventListener("DOMContentLoaded", function() {
+            var iframe = document.getElementById('powerBIReport');
+            if (iframe) {
+                iframe.addEventListener('click', function() {
+                    gtag('event', 'click', {
+                        'event_category': 'Power BI Report',
+                        'event_label': 'Report Interaction',
+                    });
+                });
+            }
+        });
+    </script>
 </html>
+
 
